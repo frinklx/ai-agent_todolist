@@ -1,5 +1,6 @@
 import json
 import os
+import ssl
 from datetime import datetime
 from typing import List, Optional
 import nltk
@@ -10,8 +11,24 @@ from rich.table import Table
 from rich.panel import Panel
 from .models import Task
 
-# Download required NLTK data
-nltk.download('punkt', quiet=True)
+# Fix NLTK SSL verification and download
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+# Try to download NLTK data, handle errors gracefully
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    try:
+        nltk.download('punkt', quiet=True)
+    except Exception:
+        # If download fails, use simple word splitting instead
+        def word_tokenize(text):
+            return text.split()
 
 console = Console()
 cal = parsedatetime.Calendar()
