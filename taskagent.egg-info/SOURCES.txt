@@ -1,0 +1,12 @@
+README.md
+setup.py
+taskagent/__init__.py
+taskagent/agent.py
+taskagent/cli.py
+taskagent/models.py
+taskagent.egg-info/PKG-INFO
+taskagent.egg-info/SOURCES.txt
+taskagent.egg-info/dependency_links.txt
+taskagent.egg-info/entry_points.txt
+taskagent.egg-info/requires.txt
+taskagent.egg-info/top_level.txt
