@@ -55,7 +55,7 @@ A powerful, AI-enhanced command-line task manager that understands natural langu
 ### Installation
 ```bash
 # Clone the repository
-git clone [your-repo-url]
+git clone https://github.com/frinklx/ai_agents/
 cd taskagent
 
 # Install the package
